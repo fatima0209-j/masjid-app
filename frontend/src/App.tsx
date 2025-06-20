@@ -9,7 +9,7 @@ import RecoverPassword from '@modules/recover-password/RecoverPassword';
 import Main from '@modules/main/Main';
 
 import Dashboard from '@pages/Dashboard';
-import Blank from '@app/pages/Masjid';
+import Masjid from '@app/pages/Masjid';
 import SubMenu from '@pages/SubMenu';
 import Profile from '@pages/profile/Profile';
 
@@ -95,7 +95,7 @@ const App = () => {
             <Route path="/" element={<Dashboard />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/sub-menu-1" element={<SubMenu />} />
-            <Route path="/sub-menu-2" element={<Blank />} />
+            <Route path="/sub-menu-2" element={<Masjid />} />
             <Route path="/masjid" element={<Masjid />} />
           </Route>
         </Route>
