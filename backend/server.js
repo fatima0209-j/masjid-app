@@ -1,8 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import authRoutes from './src/routes/authroutes.js';
-import masjidRoutes from './src/routes/masjidroutes.js';
+import authRoutes from './src/routes/auth.routes.js';
+import masjidRoutes from './src/routes/masjid.routes.js';
 
 const app = express();
 
