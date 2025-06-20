@@ -44,10 +44,26 @@ router.post('/login', async (req, res) => {
     if (!match) return res.status(401).json({ message: 'Invalid credentials' });
 
     const token = jwt.sign({ id: user._id }, 'secretkey');
-    res.json({ token });
+    res.json({ token, user });
   } catch (err) {
     res.status(500).json({ message: 'Login error', error: err.message });
   }
 });
+
+router.get('/auth/me', async (req, res) => {
+  const token = req.headers.authorization?.split(' ')[1];
+  if (!token) return res.status(401).json({ message: 'Unauthorized' });
+
+  try {
+    const decoded = jwt.verify(token, 'secretkey');
+    const user = await User.findById(decoded.id).select('-password'); // hide password
+    if (!user) return res.status(404).json({ message: 'User not found' });
+
+    res.json({ user });
+  } catch (err) {
+    return res.status(401).json({ message: 'Invalid token' });
+  }
+});
+
 
 export default router;

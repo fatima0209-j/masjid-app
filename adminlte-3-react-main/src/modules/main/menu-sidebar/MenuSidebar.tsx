@@ -20,9 +20,9 @@ export const MENU: IMenuItem[] = [
     path: '/',
   },
   {
-    name: i18n.t('menusidebar.label.blank'),
-    icon: 'fas fa-wrench nav-icon',
-    path: '/blank',
+    name: i18n.t('Masjids'),
+    icon: 'fas fa-mosque nav-icon',
+    path: '/masjid',
   },
   {
     name: i18n.t('menusidebar.label.mainMenu'),

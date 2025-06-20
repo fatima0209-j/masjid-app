@@ -9,7 +9,7 @@ import RecoverPassword from '@modules/recover-password/RecoverPassword';
 import Main from '@modules/main/Main';
 
 import Dashboard from '@pages/Dashboard';
-import Blank from '@pages/Blank';
+import Blank from '@app/pages/Masjid';
 import SubMenu from '@pages/SubMenu';
 import Profile from '@pages/profile/Profile';
 
@@ -36,7 +36,6 @@ const App = () => {
   const dispatch = useAppDispatch();
   const location = useLocation();
 
-  // ✅ Check authentication and set current user
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -59,7 +58,6 @@ const App = () => {
     }
   }, []);
 
-  // ✅ Set screen size
   useEffect(() => {
     const size = calculateWindowSize(windowSize.width);
     if (screenSize !== size) {
@@ -67,7 +65,6 @@ const App = () => {
     }
   }, [windowSize]);
 
-  // ✅ Google Analytics page view tracking
   useEffect(() => {
     if (location?.pathname && VITE_NODE_ENV === 'production') {
       ReactGA.send({
@@ -77,7 +74,6 @@ const App = () => {
     }
   }, [location]);
 
-  // ✅ Show loader during auth check
   if (isAppLoading) {
     return <Loading />;
   }
@@ -100,7 +96,7 @@ const App = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/sub-menu-1" element={<SubMenu />} />
             <Route path="/sub-menu-2" element={<Blank />} />
-            <Route path="/blank" element={<Blank />} />
+            <Route path="/masjid" element={<Masjid />} />
           </Route>
         </Route>
       </Routes>

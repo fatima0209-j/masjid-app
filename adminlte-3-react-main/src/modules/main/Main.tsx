@@ -44,6 +44,7 @@ const Main = () => {
   };
 
   useEffect(() => {
+    console.log('Current User:', currentUser);
     setIsAppLoaded(Boolean(currentUser));
   }, [currentUser]);
 
